@@ -1,0 +1,856 @@
+/* === RESET & BASE ==== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f8f9fa;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: #333;
+}
+
+main {
+    flex: 1;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 80px 0;
+}
+
+/* === HEADER & NAV === */
+header {
+    background-color: rgb(57, 9, 9);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    background: white;
+    border-radius: 7px;
+    padding: 2px;
+}
+
+nav {
+    display: flex;
+    gap: 35px;
+}
+
+nav a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    position: relative;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: #ffcc00;
+}
+
+nav a::after {
+    content: '';
+    height: 2px;
+    width: 0;
+    background: #ffcc00;
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+nav a.active::after {
+    width: 100%;
+}
+
+/* === HERO === */
+.hero {
+    background-image: url('../gambar/logo_mebel.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.hero-content {
+    color: white;
+    position: relative;
+    text-align: center;
+    padding: 20px;
+}
+
+/* === TITLES === */
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+h2::after {
+    content: '';
+    width: 60px;
+    height: 3px;
+    background: rgb(57, 9, 9);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.about-bg h2::after {
+    background: #ffcc00;
+}
+
+/* === BUTTONS === */
+.btn {
+    display: inline-block;
+    background: rgb(57, 9, 9);
+    color: white;
+    padding: 12px 28px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: rgb(90, 15, 15);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 2px solid white;
+    margin-left: 10px;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: rgb(57, 9, 9);
+}
+
+/* === KEUNGGULAN === */
+.keunggulan-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.unggul-item {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 12px;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.unggul-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* === TESTIMONI MODERN === */
+.testimoni-modern {
+    background-color: #fcfcfc;
+    padding: 60px 0;
+}
+
+.testimoni-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.testimoni-info h2 {
+    color: rgb(57, 9, 9);
+    text-align: left;
+    margin-bottom: 25px;
+    font-size: 2.5rem;
+    line-height: 1.2;
+}
+
+.testimoni-info .btn-outline {
+    background-color: transparent;
+    border: 2px solid rgb(57, 9, 9);
+    color: rgb(57, 9, 9);
+}
+
+.testimoni-info .btn-outline:hover {
+    background-color: rgb(57, 9, 9);
+    color: white;
+}
+
+.testimoni-slider-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    padding: 0 40px;
+    text-align: center;
+}
+
+.slide-logo {
+    width: 60px;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+.slide-text {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.slide-author h4 {
+    color: rgb(57, 9, 9);
+    font-weight: bold;
+}
+
+.slide-author p {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    color: rgb(57, 9, 9);
+    cursor: pointer;
+    z-index: 10;
+}
+
+.slider-arrow:hover {
+    color: rgb(110, 20, 20);
+}
+
+.slider-arrow.prev { left: 0; }
+.slider-arrow.next { right: 0; }
+
+/*=== rekomendasi ===*/
+/* Styling Judul Section di Home */
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header .subtitle {
+    color: rgb(57, 9, 9);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.section-header .line {
+    width: 60px;
+    height: 3px;
+    background: #ffcc00;
+    margin: 15px auto;
+}
+
+/* Container Gambar agar Hover lebih rapi */
+.img-container {
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+}
+
+.card:hover .img-container img {
+    transform: scale(1.1);
+}
+
+/* Container Tombol Lihat Semua */
+.view-all-container {
+    text-align: center;
+    margin-top: 40px;
+}
+/* Menghilangkan garis cokelat bawaan h2 khusus di bagian rekomendasi */
+.rekomendasi h2::after {
+    display: none;
+}
+
+/* Tetap menggunakan garis kuning agar lebih menarik di halaman Home */
+.section-header .line {
+    width: 60px;
+    height: 3px;
+    background: #ffcc00;
+    margin: 10px auto 0; /* Mengatur jarak agar pas di bawah teks */
+}
+/* === HALAMAN PRODUK ================= */
+
+/* Judul Seksi */
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title p {
+    color: #666;
+    max-width: 600px;
+    margin: 10px auto;
+}
+
+/* Filter & Search Wrapper */
+.filter-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    gap: 20px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.search-box input {
+    padding: 12px 25px;
+    border-radius: 30px;
+    border: 1px solid #ddd;
+    width: 350px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.search-box input:focus {
+    border-color: rgb(57, 9, 9);
+    box-shadow: 0 0 0 3px rgba(57, 9, 9, 0.1);
+}
+
+.filter-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#filterCategory {
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: 2px solid rgb(57, 9, 9);
+    background: white;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Container Grid */
+.produk-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+/* Card Styling */
+.card {
+    background: white;
+    border-radius: 20px;
+    border: 1px solid #eee;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+/* Badge */
+.card-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #ffcc00;
+    color: #333;
+    padding: 6px 15px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-radius: 30px;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Gambar Produk */
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+/* Detail Info */
+.card-info {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-info h3 {
+    font-size: 1.2rem;
+    color: #222;
+    margin-bottom: 8px;
+}
+
+.price {
+    font-size: 1.3rem;
+    color: rgb(57, 9, 9);
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #aaa;
+    font-size: 0.9rem;
+    margin-right: 8px;
+}
+
+.rating {
+    color: #f1c40f;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+/* Tombol WA di Card */
+.btn-full {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: rgb(57, 9, 9);
+    color: white;
+    padding: 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: auto;
+    transition: 0.3s;
+}
+
+.btn-full:hover {
+    background: #25d366; /* Warna khas WhatsApp saat hover */
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    .filter-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .search-box input {
+        width: 100%;
+    }
+}
+
+/* ================= TENTANG LAYOUT ================= */
+
+/* Hero  */
+.about-hero-modern {
+    padding: 120px 0 80px;
+    background: #fff;
+    text-align: left;
+}
+.est-text {
+    display: block;
+    letter-spacing: 4px;
+    color: rgb(57, 9, 9);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.about-hero-modern h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: #222;
+}
+.about-hero-modern .highlight {
+    color: rgb(57, 9, 9);
+}
+.about-lead {
+    font-size: 1.2rem;
+    max-width: 600px;
+    color: #666;
+}
+
+/* Zig Zag Story */
+.story-zig-zag {
+    padding: 100px 0;
+    background: #fdfdfd;
+}
+.zig-zag-wrapper {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 80px;
+    align-items: center;
+}
+.accent-line {
+    width: 50px;
+    height: 5px;
+    background: rgb(57, 9, 9);
+    margin-bottom: 20px;
+}
+.zig-zag-quote blockquote {
+    font-size: 1.8rem;
+    font-style: italic;
+    color: rgb(57, 9, 9);
+    border-left: 10px solid #eee;
+    padding-left: 30px;
+    line-height: 1.3;
+}
+
+/* Split Vision Section */
+.split-vision {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 450px;
+}
+.split-col {
+    flex: 1;
+    min-width: 50% ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 10% ;
+}
+.visi-bg {
+    background: rgb(57, 9, 9);
+    color: white;
+}
+.misi-bg {
+    background: #f4f4f4;
+    color: #333;
+}
+.split-inner h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+.split-inner h2::after {
+    left: 0;
+    transform: none;
+    background: currentColor;
+}
+.split-inner ul {
+    list-style: none;
+    padding: 0;
+}
+.split-inner ul li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+.split-inner ul li::before {
+    content: "→";
+    margin-right: 10px;
+    color: rgb(57, 9, 9);
+}
+
+/* Modern Commitment Cards */
+.modern-commitment {
+    padding: 20px 0;
+}
+.commitment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+.com-card {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    text-align: center;
+    transition: 0.3s;
+    border: 1px solid #f0f0f0;
+}
+.com-card:hover {
+    transform: translateY(-10px);
+    border-color: rgb(57, 9, 9);
+}
+.com-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .zig-zag-wrapper { grid-template-columns: 1fr; }
+    .split-col { min-width: 100% ; }
+    .about-hero-modern h1 { font-size: 2.5rem; }
+}
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    .testimoni-wrapper,
+    .visi-misi-container {
+        grid-template-columns: 1fr;
+    }
+    .testimoni-info h2 { text-align: center; }
+}
+
+/* ================= HALAMAN KONTAK  ================= */
+
+/* Mengatur tata letak 2 kolom di layar besar */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr; /* Info (kiri) lebih kecil, Form (kanan) lebih lebar */
+    gap: 80px;
+    align-items: start;
+    padding-top: 20px;
+}
+
+/* --- PANEL INFO (KIRI) --- */
+.contact-info-panel .subtitle {
+    color: rgb(57, 9, 9);
+    font-weight: bold;
+    letter-spacing: 3px;
+    display: block;
+    margin-bottom: 15px;
+    font-size: 0.85rem;
+}
+
+.contact-info-panel h2 {
+    text-align: left;
+    font-size: 2.8rem;
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.contact-info-panel h2::after {
+    left: 0;
+    transform: none;
+}
+
+.contact-info-panel .highlight {
+    color: rgb(57, 9, 9);
+}
+
+.contact-desc {
+    color: #666;
+    margin-bottom: 45px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.contact-details {
+    display: grid;
+    gap: 30px;
+}
+
+.detail-item {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.detail-item .icon {
+    width: 55px;
+    height: 55px;
+    background: #fdf2f2; /* Warna latar belakang ikon lembut */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.detail-item h4 {
+    margin: 0;
+    color: rgb(57, 9, 9);
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.detail-item p {
+    margin: 3px 0 0;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* --- PANEL FORMULIR (KANAN) --- */
+.contact-form-panel {
+    background: white;
+    padding: 45px;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+    border: 1px solid #f2f2f2;
+}
+
+/* Layout Nama & HP bersebelahan */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #222;
+    font-size: 0.9rem;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 1rem;
+    background: #fafafa;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: rgb(57, 9, 9);
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(57, 9, 9, 0.05);
+}
+
+/* Tombol WA Full Width */
+.btn-full {
+    width: 100%;
+    padding: 16px;
+    background-color: rgb(57, 9, 9);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    margin-top: 10px;
+}
+
+.btn-full:hover {
+    background-color: rgb(90, 15, 15);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(57, 9, 9, 0.2);
+}
+
+.form-note {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.85rem;
+    color: #999;
+}
+
+/* --- RESPONSIVE KONTAK --- */
+@media (max-width: 1024px) {
+    .contact-wrapper {
+        gap: 40px;
+    }
+    .contact-info-panel h2 {
+        font-size: 2.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr; /* Jadi bertumpuk di HP */
+        padding: 20px 0;
+    }
+    
+    .contact-info-panel {
+        text-align: center;
+    }
+
+    .contact-info-panel h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .detail-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr; /* Input Nama & HP jadi tumpuk di HP */
+    }
+
+    .contact-form-panel {
+        padding: 30px 20px;
+    }
+}
+
+/* ================= FOOTER ================= */
+footer {
+    background: rgb(57, 9, 9);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
